@@ -1,0 +1,31 @@
+<?php
+
+function isPrime($number) {
+    // Base cases: 0 and 1 are not prime
+    if ($number <= 1) {
+        return false;
+    }
+
+    // Iterate from 2 to the square root of the number
+    // If we find a divisor, it's not prime
+    for ($i = 2; $i * $i <= $number; $i++) {
+        if ($number % $i === 0) {
+            return false;
+        }
+    }
+
+    // If no divisors are found, it's prime
+    return true;
+}
+
+// Get the input number from user
+$number = intval(readline("Enter a number: "));
+
+// Call the isPrime function to check if the number is prime or not
+if (isPrime($number)) {
+    echo $number . " is a prime number." . PHP_EOL;
+} else {
+    echo $number . " is not a prime number." . PHP_EOL;
+}
+
+?>
